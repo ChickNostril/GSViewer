@@ -1,0 +1,44 @@
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  padding: 7px 16px;
+  background-color: #111215; /* 배경색 */
+  border-bottom: 1px solid #1b1c20; /* 하단 테두리 */
+}
+
+.logoSection {
+  display: flex;
+  align-items: center; /* Aligns items horizontally */
+  margin: 0 10px;
+  .logo {
+    display: flex;
+    align-items: center; /* Aligns VARCO and GSViewer horizontally */
+    font-weight: bold; /* Makes VARCO bold */
+    color: white; /* Sets VARCO color to white */
+    font-size: 16px;
+    p {
+      font-size: 12px;
+      margin-left: 6px; /* Adds a gap of 10px between VARCO and GSViewer */
+      color: #8060df; /* Sets GSViewer color to purple */
+    }
+  }
+}
+
+.signout {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽으로 정렬 */
+  align-items: center;
+  .icon {
+    font-size: 24px;
+    color: white; /* 아이콘 색상 */
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8; /* 호버 효과 */
+    }
+  }
+}

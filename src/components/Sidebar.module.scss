@@ -1,0 +1,141 @@
+.sidebar {
+  min-width: 300px;
+  background-color: #111215;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px; /* 아이템 간 간격 */
+  padding: 23px 20px; /* 위/아래 23px, 좌/우 20px */
+
+  .nameContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+
+    .name {
+      font-size: 14px;
+      font-weight: bold;
+      color: #c4c7cc; /* Dark Grey (text-coreDarkGrey-800) */
+    }
+  }
+
+  .emailContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .email {
+      font-size: 12px;
+      text-align: center;
+      color: #6e6e6e; /* Light Grey (text-coreDarkGrey-600) */
+    }
+  }
+}
+
+.newProjectContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px; /* 상하 16px, 좌우 20px */
+  border-top: 1px solid #31333a;
+
+  .button {
+    display: flex;
+    height: 36px;
+    min-width: 73px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #ffffff; /* 텍스트 색상 */
+    background-color: #0e8cf1; /* 기본 배경색 */
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #003d99; /* 호버 배경색 */
+    }
+
+    &:active {
+      background-color: #3366ff; /* 클릭 시 배경색 */
+    }
+
+    &:disabled {
+      background-color: #d1d1d1; /* 비활성화 상태 배경색 */
+      color: #6e6e6e; /* 비활성화 상태 텍스트 색상 */
+      cursor: not-allowed;
+    }
+
+    .icon {
+      font-size: 14px;
+    }
+
+    .text {
+      white-space: nowrap;
+      text-align: center;
+    }
+  }
+}
+
+.nav {
+  padding: 16px; /* 전체 여백 */
+  border-top: 1px solid #31333a;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* 리스트 아이템 간 간격 */
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    margin: 0;
+    padding: 0;
+  }
+
+  .navItem {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 아이콘과 텍스트 간격 */
+    padding: 8px 12px; /* 내부 여백 */
+    border-radius: 8px; /* 둥근 모서리 */
+    cursor: pointer;
+    color: #333; /* 기본 텍스트 색상 */
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #31333a; /* 호버 상태 배경색 */
+    }
+
+    &:active {
+      background-color: #31333a; /* 클릭 상태 배경색 */
+    }
+
+    .icon {
+      font-size: 16px; /* 아이콘 크기 */
+      color: #e1e5eb; /* 아이콘 색상 */
+    }
+
+    span {
+      color: #e1e5eb; /* 텍스트 색상 */
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: #444;
+  margin-top: 20px;
+}

@@ -1,0 +1,119 @@
+.card {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border: 1px solid #31333a;
+  border-radius: 18px;
+  background-color: #111215;
+  overflow: visible; /* 드롭다운 메뉴가 보이도록 설정 */
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: #666;
+  }
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border-radius: 18px;
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.3s ease;
+  }
+}
+
+.infoWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #070708;
+  padding: 13px 20px 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 18px 18px;
+
+  .menuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #1d1f24;
+    }
+
+    svg {
+      font-size: 16px;
+      color: #e1e5eb;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    top: calc(100% - 15px); /* 버튼 아래로 배치 */
+    right: 0px;
+    z-index: 1000; /* 다른 요소보다 위에 표시 */
+    width: 90px;
+    background-color: #17191c;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+
+    .menuItem {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px 8px 15px;
+      background-color: #17191c;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #333;
+      }
+
+      .menuIcon {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .projectInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+
+    .projectName {
+      font-size: 14px;
+      font-weight: bold;
+      color: #c4c7cc;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .projectDate {
+      font-size: 12px;
+      color: #666;
+    }
+  }
+}
