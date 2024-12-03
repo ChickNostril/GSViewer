@@ -47,7 +47,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div className={styles.card} ref={cardRef} onClick={handleCardClick}>
       {/* 이미지 영역 */}
       <div className={styles.imageWrapper}>
-        <img src={image} alt="Thumbnail" className={styles.image} />
+        <img src={image} alt={`${name} Thumbnail`} className={styles.image} />
         <span className={styles.projectCreatedBy}>@{createdBy}</span>
       </div>
 

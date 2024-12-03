@@ -14,17 +14,27 @@
     padding: 23px 0;
 
     .title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       font-size: 16px;
       font-weight: bold;
       color: #ffffff;
+      p {
+        margin-right: 4px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #a0a0a0;
+      }
     }
 
     .viewAllButton {
       display: flex;
       align-items: center;
-      gap: 4px;
+      margin: 20px 0 15px 0;
       font-size: 12px;
       color: #b0b0b0;
+      gap: 4px;
       background: none;
       border: none;
       cursor: pointer;
@@ -47,6 +57,43 @@
       width: 238px; /* 카드 너비 고정 */
       height: 238px; /* 카드 높이 고정 */
       flex: 0 0 auto; /* 크기 고정 및 줄바꿈 허용 */
+    }
+  }
+  .wiki {
+    display: flex;
+    height: 36px;
+    min-width: 73px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    align-self: stretch;
+    overflow: hidden;
+    border: 1px solid #31333a; // 변수 사용
+    border-radius: 6px;
+    padding: 8px 12px;
+    background-color: transparent;
+    color: #000000;
+    font-size: 13px; // 텍스트 스타일 변수
+
+    &:hover {
+      border-color: #4b4b4b;
+    }
+
+    &:active {
+      background-color: #6e6e6e;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      border-color: #31333a;
+      color: #000000;
+    }
+
+    p {
+      color: #ffffff;
+      white-space: nowrap;
+      text-align: center;
     }
   }
 }

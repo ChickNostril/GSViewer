@@ -1,9 +1,8 @@
 import React from "react";
-import ProjectCard from "./ProjectCard";
-import styles from "./HomeContent.module.scss";
+import ProjectCard from "../ProjectCard";
+import styles from "./Content.module.scss";
 import { FaChevronRight } from "react-icons/fa";
-
-import { projects } from "../data/projects";
+import { projects } from "../../data/projects";
 
 const HomeContent = () => {
   return (
