@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import ProjectCard from "./ProjectCard";
 import styles from "./HomeContent.module.scss";
 import { FaChevronRight } from "react-icons/fa";

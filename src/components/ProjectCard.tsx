@@ -27,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   const handleCardClick = () => {
-    navigate(`/viewer?id=${id}`); // Viewer 페이지로 이동하면서 URL에 ID 전달
+    navigate(`/viewer?id=${id}`);
   };
 
   const handleClickOutside = (event: MouseEvent) => {

@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { WebGLRenderer, PerspectiveCamera, Scene } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import { LumaSplatsThree, LumaSplatsSemantics } from "@lumaai/luma-web";
+import { LumaSplatsThree } from "@lumaai/luma-web";
 import styles from "./Viewer.module.scss";
 import { IoShareSocialOutline } from "react-icons/io5";
-import { Navigate } from "react-router-dom";
 import { projects } from "../data/projects";
 
 const Viewer = () => {
