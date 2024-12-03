@@ -1,10 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard";
 import styles from "./Content.module.scss";
 import { FaChevronRight } from "react-icons/fa";
-import { projects } from "../../data/projects";
+import axios from "axios";
+
+interface Project {
+  id: number;
+  name: string;
+  createdBy: string;
+  date: string;
+  image: string;
+}
 
 const HomeContent = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/projects");
+        setProjects(response.data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -22,7 +45,7 @@ const HomeContent = () => {
             name={project.name}
             createdBy={project.createdBy}
             date={project.date}
-            image={project.image}
+            image={`http://127.0.0.1:8000/${project.image}`} // 서버 이미지 경로
           />
         ))}
       </div>

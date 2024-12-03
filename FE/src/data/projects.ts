@@ -14,7 +14,7 @@ export const projects: Project[] = [
     createdBy: "Jeongyeob Shin",
     date: "2024-11-28 / 15:55:27",
     image: "https://loremflickr.com/250/250",
-    source: "https://lumalabs.ai/capture/ca9ea966-ca24-4ec1-ab0f-af665cb546ff", // Luma Splats URL
+    source: "https://lumalabs.ai/capture/ca9ea966-ca24-4ec1-ab0f-af665cb546ff",
   },
   {
     id: 2,

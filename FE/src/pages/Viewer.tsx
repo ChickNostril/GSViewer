@@ -6,6 +6,7 @@ import { LumaSplatsThree } from "@lumaai/luma-web";
 import styles from "./Viewer.module.scss";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { projects } from "../data/projects";
+import axios from "axios";
 
 const Viewer = () => {
   const [source, setSource] = useState<string | null>(null);
@@ -27,15 +28,23 @@ const Viewer = () => {
     const queryParams = new URLSearchParams(location.search);
     const projectId = queryParams.get("id");
 
-    const project = projects.find((p) => p.id.toString() === projectId);
-    if (project) {
-      setSource(project.source);
-      setProjectName(project.name); // 프로젝트 이름 설정
-      setProjectCreatedBy(project.createdBy); // 프로젝트 이름 설정
-      setProjectDate(project.date); // 프로젝트 날짜 설정
-    } else {
-      navigate("/"); // 잘못된 ID인 경우 홈으로 리다이렉트
-    }
+    const fetchProject = async () => {
+      try {
+        const response = await axios.get(
+          `http://127.0.0.1:8000/projects/${projectId}`
+        );
+        const project = response.data;
+        setSource(project.source);
+        setProjectName(project.name);
+        setProjectCreatedBy(project.createdBy);
+        setProjectDate(project.date);
+      } catch (error) {
+        console.error("Error fetching project:", error);
+        navigate("/"); // 잘못된 ID인 경우 홈으로 리다이렉트
+      }
+    };
+
+    fetchProject();
   }, [location, navigate]);
 
   useEffect(() => {
