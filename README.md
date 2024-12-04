@@ -20,19 +20,25 @@
 
 프로젝트 디렉토리에서 다음 명령어를 실행하세요:
 
-### 1. 가상 환경 활성화
+### 1. 가상 환경 설치
+
+```bash
+py -m venv venv
+```
+
+### 2. 가상 환경 활성화
 
 ```bash
 venv\Scripts\activate
 ```
 
-### 2. 의존성 설치
+### 3. 의존성 설치
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. 서버 실행
+### 4. 서버 실행
 
 ```bash
 uvicorn main:app --reload
