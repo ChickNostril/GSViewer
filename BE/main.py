@@ -9,7 +9,6 @@ import uuid
 import json
 from pathlib import Path
 
-# Initialize FastAPI app
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -19,17 +18,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Path to store project data
 DATA_FILE = Path("data/projects.json")
 STATIC_DIR = Path("static/")
 STATIC_DIR.mkdir(exist_ok=True)
 
-# Check if data file exists, if not create an empty one
 if not DATA_FILE.exists():
     DATA_FILE.write_text(json.dumps([]))
 
-
-# Project Model
 class Project(BaseModel):
     id: str
     name: str
@@ -40,8 +35,6 @@ class Project(BaseModel):
 
 
 # API Routes
-
-# Get all projects
 @app.get("/projects", response_model=List[Project])
 async def get_projects():
     try:
@@ -65,29 +58,27 @@ async def upload_project(
     date: str = Form(...),
     image: UploadFile = File(...),
 ):
-    # Generate unique ID for the project
+    # 프로젝트 ID 생성
     project_id = str(uuid.uuid4())
 
-    # Save the image file
+    # FE에서 업로드한 파일 처리 (임시)
     image_path = STATIC_DIR / f"{project_id}_{image.filename}"
     with image_path.open("wb") as f:
         f.write(image.file.read())
 
-    # Generate a dummy data URL (replace with actual logic if needed)
-    image_url = "https://placebeard.it/250/250"
-    source_url = f"https://lumalabs.ai/capture/ca9ea966-ca24-4ec1-ab0f-af665cb546ff"
+    # 더미 데이터 url (임시)
+    image_url = "https://placebeard.it/250/250" # 프로젝트 카드 썸네일 (임시)
+    source_url = f"https://lumalabs.ai/capture/ca9ea966-ca24-4ec1-ab0f-af665cb546ff" # 뷰어 (임시)
 
-    # Create new project data
     new_project = {
         "id": project_id,
         "name": name,
         "createdBy": createdBy,
         "date": date,
         "image": image_url,
-        "source": source_url,  # 서버에서 생성
+        "source": source_url,
     }
 
-    # Save project data to file
     projects = json.loads(DATA_FILE.read_text(encoding="utf-8"))  # 인코딩 지정
     projects.append(new_project)
     DATA_FILE.write_text(json.dumps(projects, indent=4), encoding="utf-8")  # 인코딩 지정
@@ -95,7 +86,6 @@ async def upload_project(
     return new_project
 
 
-# Get a specific project by ID
 @app.get("/projects/{project_id}", response_model=Project)
 async def get_project(project_id: str):
     projects = json.loads(DATA_FILE.read_text())

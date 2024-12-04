@@ -41,7 +41,7 @@ const MyProjectContent = () => {
           <p>Home /</p> My Projects
         </span>
         <button className={styles.viewAllButton}>
-          <span>7 projects</span>
+          <span>{projects.length} projects</span>
         </button>
       </div>
       <div className={styles.projectList}>
