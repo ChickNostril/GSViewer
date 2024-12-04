@@ -14,22 +14,29 @@ const CreateModal: React.FC<CreateModalProps> = ({ onCancel }) => {
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
-      setFile(event.target.files[0]);
+      const selectedFile = event.target.files[0];
+      // 파일 확장자 검사
+      const validExtensions = ["mov", "mp4", "zip"];
+      const fileExtension = selectedFile.name.split(".").pop()?.toLowerCase();
+      if (!fileExtension || !validExtensions.includes(fileExtension)) {
+        alert("Invalid file type. Only MOV, MP4, and ZIP files are allowed.");
+        return;
+      }
+      setFile(selectedFile);
     }
   };
 
   const handleSubmit = async () => {
     if (!title || !file) {
-      alert("Title and file are required.");
+      alert("제목과 파일 둘 다 필요합니다.");
       return;
     }
 
     const formData = new FormData();
     formData.append("name", title);
-    formData.append("createdBy", "UserName"); // 실제 사용자 정보로 대체
+    formData.append("createdBy", "Jeongyeob Shin"); // 실제 로그인 사용자 정보로 대체
     formData.append("date", new Date().toISOString());
     formData.append("image", file);
-    formData.append("source", "https://example.com"); // 실제 소스 URL로 대체
 
     setLoading(true);
     try {
@@ -72,7 +79,7 @@ const CreateModal: React.FC<CreateModalProps> = ({ onCancel }) => {
             <p>Drag a file in this area or click Browse Button</p>
             <input
               type="file"
-              accept="image/*"
+              accept=".mov,.mp4,.zip"
               onChange={handleFileChange}
               style={{ display: "none" }}
               id="file-upload"

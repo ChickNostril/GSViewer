@@ -5,7 +5,6 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { LumaSplatsThree } from "@lumaai/luma-web";
 import styles from "./Viewer.module.scss";
 import { IoShareSocialOutline } from "react-icons/io5";
-import { projects } from "../data/projects";
 import axios from "axios";
 
 const Viewer = () => {

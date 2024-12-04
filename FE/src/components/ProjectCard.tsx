@@ -2,13 +2,15 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./ProjectCard.module.scss";
 import { FaEllipsisV, FaInfoCircle, FaTrashAlt } from "react-icons/fa";
+import axios from "axios";
 
 interface ProjectCardProps {
-  id: number;
+  id: string;
   name: string;
   createdBy: string;
   date: string;
   image: string;
+  onDelete: (id: string) => void; // 삭제 후 상위 컴포넌트에서 상태 업데이트
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -17,6 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   createdBy,
   date,
   image,
+  onDelete,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -42,6 +45,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const handleDelete = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation(); // 삭제 버튼 클릭 시 카드 클릭 방지
+
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete ${name}?`
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await axios.delete(`http://127.0.0.1:8000/projects/${id}`);
+      alert("Project deleted successfully.");
+      onDelete(id); // 상위 컴포넌트에서 상태 업데이트
+    } catch (error) {
+      console.error("Error deleting project:", error);
+      alert("Failed to delete the project.");
+    }
+  };
 
   return (
     <div className={styles.card} ref={cardRef} onClick={handleCardClick}>
@@ -76,7 +97,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               <FaInfoCircle className={styles.menuIcon} />
               <span>정보</span>
             </button>
-            <button className={styles.menuItem}>
+            <button className={styles.menuItem} onClick={handleDelete}>
               <FaTrashAlt className={styles.menuIcon} />
               <span>삭제</span>
             </button>

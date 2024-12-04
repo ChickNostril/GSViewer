@@ -3,8 +3,6 @@ import ProjectCard from "../ProjectCard";
 import styles from "./Content.module.scss";
 import { FaChevronRight } from "react-icons/fa";
 
-import { projects } from "../../data/projects";
-
 const CommunityContent = () => {
   return (
     <div className={styles.container}>

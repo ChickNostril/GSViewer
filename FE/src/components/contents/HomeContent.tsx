@@ -5,11 +5,12 @@ import { FaChevronRight } from "react-icons/fa";
 import axios from "axios";
 
 interface Project {
-  id: number;
+  id: string;
   name: string;
   createdBy: string;
   date: string;
   image: string;
+  onDelete: string;
 }
 
 const HomeContent = () => {
@@ -28,6 +29,12 @@ const HomeContent = () => {
     fetchProjects();
   }, []);
 
+  const handleDelete = (id: string) => {
+    setProjects((prevProjects) =>
+      prevProjects.filter((project) => project.id !== id)
+    );
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -45,7 +52,8 @@ const HomeContent = () => {
             name={project.name}
             createdBy={project.createdBy}
             date={project.date}
-            image={`http://127.0.0.1:8000/${project.image}`} // 서버 이미지 경로
+            image={`http://127.0.0.1:8000/${project.image}`}
+            onDelete={handleDelete} // 삭제 콜백 전달
           />
         ))}
       </div>
