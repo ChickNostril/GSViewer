@@ -35,7 +35,7 @@ const CreateModal: React.FC<CreateModalProps> = ({ onCancel }) => {
     const formData = new FormData();
     formData.append("name", title);
     formData.append("createdBy", "Jeongyeob Shin"); // 실제 로그인 사용자 정보로 대체
-    formData.append("date", new Date().toISOString());
+    formData.append("date", new Date().toISOString().split("T")[0]);
     formData.append("image", file); // 임시로 업로드한 파일을 이미지 경로에 할당
 
     setLoading(true);
