@@ -6,9 +6,9 @@
 
 프로젝트 디렉토리에서 다음 명령어를 실행하세요:
 
-### `npm start`
-
 ### `npm install`
+
+### `npm start`
 
 개발 모드에서 애플리케이션이 실행됩니다.\
 [http://localhost:3000](http://localhost:3000)에서 브라우저로 확인할 수 있습니다.
