@@ -74,7 +74,7 @@ async def upload_project(
         f.write(image.file.read())
 
     # Generate a dummy data URL (replace with actual logic if needed)
-    image_url = f"https://placebeard.it/250/250"
+    image_url = "https://placebeard.it/250/250"
     source_url = f"https://lumalabs.ai/capture/ca9ea966-ca24-4ec1-ab0f-af665cb546ff"
 
     # Create new project data

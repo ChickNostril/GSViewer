@@ -36,7 +36,7 @@ const CreateModal: React.FC<CreateModalProps> = ({ onCancel }) => {
     formData.append("name", title);
     formData.append("createdBy", "Jeongyeob Shin"); // 실제 로그인 사용자 정보로 대체
     formData.append("date", new Date().toISOString());
-    formData.append("image", file);
+    formData.append("image", file); // 임시로 업로드한 파일을 이미지 경로에 할당
 
     setLoading(true);
     try {
@@ -76,7 +76,17 @@ const CreateModal: React.FC<CreateModalProps> = ({ onCancel }) => {
             <div className={styles.uploadIcon}>
               <IoCloudUploadOutline />
             </div>
-            <p>Drag a file in this area or click Browse Button</p>
+            {file ? (
+              <div className={styles.fileInfo}>
+                <p>
+                  {file.name} / {Math.round(file.size / 1024)} KB
+                </p>
+              </div>
+            ) : (
+              <div className={styles.fileInfo}>
+                <p>Drag a file in this area or click Browse Button</p>
+              </div>
+            )}
             <input
               type="file"
               accept=".mov,.mp4,.zip"

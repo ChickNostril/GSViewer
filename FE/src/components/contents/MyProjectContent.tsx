@@ -52,7 +52,7 @@ const MyProjectContent = () => {
             name={project.name}
             createdBy={project.createdBy}
             date={project.date}
-            image={`http://127.0.0.1:8000/${project.image}`}
+            image={project.image}
             onDelete={handleDelete} // 삭제 콜백 전달
           />
         ))}
