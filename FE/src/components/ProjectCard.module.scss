@@ -18,6 +18,14 @@
   height: 100%;
   overflow: visible;
   border-radius: 18px;
+  display: flex; /* Flexbox를 활성화 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+
+  .processingIcon {
+    width: 96px;
+    height: 96px;
+  }
 
   .image {
     width: 100%;

@@ -1,10 +1,11 @@
 [
     {
-        "id": "0077a64d-e230-4986-8567-0378f8cdd02f",
+        "id": "3f496d2c-0c52-4d23-bfa3-ab2744bbd704",
         "name": "TEST",
         "createdBy": "Jeongyeob Shin",
-        "date": "2024-12-04",
-        "image": "https://placebeard.it/250/250",
-        "source": "https://lumalabs.ai/capture/ca9ea966-ca24-4ec1-ab0f-af665cb546ff"
+        "date": "2024-12-06",
+        "image": "http://127.0.0.1:8000/static/ExampleThumbnail.png",
+        "status": "\uc644\ub8cc",
+        "source": "http://127.0.0.1:8000/get-file"
     }
 ]
